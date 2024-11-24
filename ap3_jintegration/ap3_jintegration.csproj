@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ado\Ado.cs" />
+    <Compile Include="ado\adoEquipe.cs" />
+    <Compile Include="ado\adoJoueur.cs" />
+    <Compile Include="classe\Epreuve.cs" />
+    <Compile Include="classe\Equipe.cs" />
+    <Compile Include="classe\Joueur.cs" />
+    <Compile Include="classe\Tournois.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,9 +83,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ado\" />
-    <Folder Include="classe\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
