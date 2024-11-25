@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ado\Ado.cs" />
+    <Compile Include="ado\AdoEpreuve.cs" />
     <Compile Include="ado\AdoEquipe.cs" />
     <Compile Include="ado\AdoJoueur.cs" />
+    <Compile Include="ado\AdoTournois.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
