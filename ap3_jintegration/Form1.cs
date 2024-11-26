@@ -16,5 +16,10 @@ namespace ap3_jintegration
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            ado.ADO.open();
+        }
     }
 }

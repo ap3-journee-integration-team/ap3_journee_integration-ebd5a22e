@@ -8,7 +8,6 @@ namespace ap3_jintegration.classe
 {
     public class Tournois
     {
-
         private string nom_tournois;
         private DateTime date_tournois;
         private string lieu_tournois;
