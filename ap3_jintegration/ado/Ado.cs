@@ -14,6 +14,9 @@ namespace ap3_jintegration.ado
 
         protected static SqlConnection connexion;
 
+        public Ado()
+        {
+        }
         public static void open()
         {
 
