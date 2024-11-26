@@ -26,4 +26,3 @@ namespace ap3_jintegration.classe
         public string Lieu_tournois { get => lieu_tournois; set => lieu_tournois = value; }
     }
 }
-}
