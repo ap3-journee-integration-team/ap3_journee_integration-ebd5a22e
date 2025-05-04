@@ -27,7 +27,7 @@ namespace ap3_jintegration.ado
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connexion;
             cmd.CommandText = "INSERT INTO equipe(nom_equipe) VALUES(@nom_equipe)";
-            cmd.Parameters.AddWithValue("@nom_equipe", Equipe.nom_equipe);
+            cmd.Parameters.AddWithValue("@nom_equipe", uneEquipe.Nom_equipe);
             cmd.Prepare();
             cmd.ExecuteNonQuery();
             close();

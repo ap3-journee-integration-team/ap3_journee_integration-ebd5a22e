@@ -16,8 +16,9 @@ namespace ap3_jintegration.ado
 
         public static void open()
         {
+            string cs = $"Data Source = PC_TEH_LES_FOUS\\MSSQLSERVERCELIN; Initial Catalog = bd_ap3; Integrated Security = True";
 
-            string cs = $"Data Source = LAPTOP-9HK09LIE; Initial Catalog = bd_ap3; Integrated Security = True";
+            //string cs = $"Data Source = LAPTOP-9HK09LIE; Initial Catalog = bd_ap3; Integrated Security = True";
             try
             {
                 connexion = new SqlConnection(cs);

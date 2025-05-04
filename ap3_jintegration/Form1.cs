@@ -38,11 +38,13 @@ namespace ap3_jintegration
         private void lstTournois_SelectedIndexChanged(object sender, EventArgs e)
         {
             Tournois tournois = lstTournois.SelectedItem as Tournois;
-            tbxNomUpdate.Text = tournois.Nom_tournois;
-            dteTournoisUpdate.Value = tournois.Date_tournois;
-            tbxLieuUpdate.Text = tournois.Lieu_tournois;
+            if (tournois != null) {
+                tbxNomUpdate.Text = tournois.Nom_tournois;
+                dteTournoisUpdate.Value = tournois.Date_tournois;
+                tbxLieuUpdate.Text = tournois.Lieu_tournois;
+            }
 
-        // permet de prendre l'item et d'afficher ses valeurs dans les textbox
+            // permet de prendre l'item et d'afficher ses valeurs dans les textbox
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
