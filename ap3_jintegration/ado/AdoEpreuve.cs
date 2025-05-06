@@ -9,58 +9,70 @@ namespace ap3_jintegration.ado
 {
     internal class AdoEpreuve : Ado
     {
-        public static void create_tournois(string nom, string dte, string lieu)                                                 // surement changer les parametres a voir avec la class 
+        public static void create(classe.Epreuve epreuve)                                                 // surement changer les parametres a voir avec la class 
         {
             open();                                 // ouverture de la connexion a la bdd
             SqlCommand cmd = new SqlCommand();      // instanciation de la commande 
             cmd.Connection = connexion;
-            cmd.CommandText = "INSERT INTO tournois (nom_tournois, date_tournois, lieu_tournois) VALUES (@nom,@dte,@lieu)";
-            cmd.Parameters.AddWithValue(@nom, nom);
-            cmd.Parameters.AddWithValue("@dte", dte);
-            cmd.Parameters.AddWithValue(@lieu, lieu);
+            cmd.CommandText = "INSERT INTO epreuve (nom_epreuve,coeff,description) VALUES (@nom_epreuve,@coeff,@description)";
+            cmd.Parameters.AddWithValue("@nom_epreuve", epreuve.Nom);
+            cmd.Parameters.AddWithValue("@coeff", epreuve.Coeff);
+            cmd.Parameters.AddWithValue("@description", epreuve.Description);
             cmd.ExecuteNonQuery();                  // pour executer la commande 
             close();                                // fermeture de la connexion a la bdd 
 
         }  //  formatage de la date et de l'heure :   String.Format("{dd/MM/yyyy hh:mm}",
 
-        public static void getAll()
+        public static List<classe.Epreuve> getAll()
         {
+            List<classe.Epreuve> epreuves = new List<classe.Epreuve>();
             open();
-            string query = $"SELECT * FROM tournois";
+            string query = $"SELECT * FROM epreuve";
             SqlCommand cmd = new SqlCommand(query, connexion);
-            cmd.ExecuteNonQuery();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                epreuves.Add(new classe.Epreuve(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetString(3)));
+            }
+
             close();
+            return epreuves;
+
         }
 
-        public static void getOne(int Id_tournois)
+        public static void getOne(classe.Epreuve epreuve)
         {
             open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connexion;
-            cmd.CommandText = "SELECT * FROM tournois WHERE id_tournois = @Id_tournois";
-            cmd.Parameters.AddWithValue("@Id_tournois", Id_tournois);
+            cmd.CommandText = "SELECT * FROM epreuve WHERE Id = @Id_epreuve";
+            cmd.Parameters.AddWithValue("@Id_epreuve", epreuve.Id);
             cmd.ExecuteNonQuery();
             close();
         }
 
-        public static void update(string nom, DateTime date, int Id_tournois)
+        public static void update(classe.Epreuve epreuve)
         {
             open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connexion;
-            cmd.CommandText = "UPDATE tournois SET nom_tournois = '@nom' WHERE id_tournois = @Id_tournois";
-            cmd.Parameters.AddWithValue("@Id_tournois", Id_tournois);
+            cmd.CommandText = "UPDATE epreuve SET nom_epreuve = @nom , description = @description WHERE Id_epreuve = @Id_epreuve";
+            cmd.Parameters.AddWithValue("@nom", epreuve.Nom);
+            cmd.Parameters.AddWithValue("@description", epreuve.Description);
+            cmd.Parameters.AddWithValue("@Id_epreuve", epreuve.Id);
             cmd.ExecuteNonQuery();
             close();
         }
 
-        public static void delete(int Id_tournois)
+        public static void delete(int Id_epreuve)
         {
             open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connexion;
-            cmd.CommandText = "DELETE FROM tournois WHERE id_tournois = @Id_tournois";
-            cmd.Parameters.AddWithValue("@Id_tournois", Id_tournois);
+            cmd.CommandText = "DELETE FROM classe.Epreuve WHERE id_epreuve = @Id_epreuve";
+            cmd.Parameters.AddWithValue("@Id_epreuve", Id_epreuve);
             cmd.ExecuteNonQuery();
             close();
 
@@ -118,6 +130,7 @@ namespace ap3_jintegration.ado
             close();
 
         } */
+
 
 
 
