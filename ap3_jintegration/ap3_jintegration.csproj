@@ -48,10 +48,15 @@
   <ItemGroup>
     <Compile Include="ado\Ado.cs" />
     <Compile Include="ado\AdoEpreuve.cs" />
-
     <Compile Include="ado\AdoTournois.cs" />
     <Compile Include="ado\adoEquipe.cs" />
     <Compile Include="ado\adoJoueur.cs" />
+    <Compile Include="AssocierEquipeTournois.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssocierEquipeTournois.Designer.cs">
+      <DependentUpon>AssocierEquipeTournois.cs</DependentUpon>
+    </Compile>
     <Compile Include="classe\Epreuve.cs" />
     <Compile Include="classe\Equipe.cs" />
     <Compile Include="classe\Joueur.cs" />
@@ -64,6 +69,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AssocierEquipeTournois.resx">
+      <DependentUpon>AssocierEquipeTournois.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,8 +97,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ado\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
