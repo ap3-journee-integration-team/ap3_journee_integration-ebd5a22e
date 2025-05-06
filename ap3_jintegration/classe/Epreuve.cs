@@ -13,6 +13,7 @@ namespace ap3_jintegration.classe
         private string nom;
         private int coeff;
         private string description;
+        private Dictionary<Equipe,int> resultat;
 
         public Epreuve(string Nom, int Coeff, string Description)
         {
