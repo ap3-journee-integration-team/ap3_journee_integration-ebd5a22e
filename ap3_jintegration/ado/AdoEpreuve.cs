@@ -71,7 +71,7 @@ namespace ap3_jintegration.ado
             open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connexion;
-            cmd.CommandText = "DELETE FROM classe.Epreuve WHERE id_epreuve = @Id_epreuve";
+            cmd.CommandText = "DELETE FROM Epreuve WHERE id_epreuve = @Id_epreuve";
             cmd.Parameters.AddWithValue("@Id_epreuve", Id_epreuve);
             cmd.ExecuteNonQuery();
             close();
